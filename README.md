@@ -1,34 +1,50 @@
-[![CI](https://github.com/Hmm-09876/demo-3/actions/workflows/ci.yml/badge.svg)](https://github.com/Hmm-09876/demo-3/actions/workflows/ci.yml)
+# demo-3
 
-[![CD](https://github.com/Hmm-09876/demo-3/actions/workflows/cd.yml/badge.svg)](https://github.com/Hmm-09876/demo-3/actions/workflows/cd.yml)
+Repo này là chỗ ghi lại quá trình học và tự tay thực hành với các tool và flow cơ bản trong DevOps / QA, như Terraform, LocalStack, pytest, Docker, GitHub Actions, GHCR, Trivy, Kubernetes và Postman.
 
-[![Security Scan](https://github.com/Hmm-09876/demo-3/actions/workflows/sec-scan.yml/badge.svg)](https://github.com/Hmm-09876/demo-3/actions/workflows/sec-scan.yml)
-# Mục tiêu đã đạt trong demo-3
+Mục tiêu của repo này không phải là một project production hoàn chỉnh. Nó giống một cuốn sổ thực hành hơn: làm thử, chạy thử, kiểm tra lại, rồi lưu evidence để sau này còn xem lại được.
 
-1. Viết module Terraform cho Lambda & S3.
+## đã học và thử những gì
 
-2. LocalStack (docker-compose) mô phỏng AWS để test cục bộ.
+### 1. Terraform và LocalStack
+- Làm quen với Terraform để khai báo hạ tầng
+- Dùng LocalStack để mô phỏng AWS trên máy local
+- Tự kiểm tra Lambda, S3 và các resource liên quan
+- Tập đọc plan, apply và output sau khi chạy
 
-3. Tests: pytest để kiểm tra upload S3 deploy Lambda + web-app health.
+### 2. Python và pytest
+- Viết test bằng Python
+- Dùng pytest để kiểm tra hành vi cơ bản
+- Tập quen với việc test không chỉ để pass, mà còn để tạo ra output có thể lưu lại
 
-4. CI: lint, pytest, terraform validate và build image.
+### 3. Docker, GitHub Actions, GHCR, Trivy
+- Build image bằng Docker
+- Chạy workflow bằng GitHub Actions
+- Push image lên GHCR
+- Scan image bằng Trivy
+- Hiểu dần flow từ code tới artefact
 
-5. Makefile, script để tự động hoá wrap lệnh và test nhanh.
+### 4. Kubernetes
+- Làm quen với manifest
+- Tập deploy cơ bản
+- Tập kiểm tra rollout và trạng thái triển khai
 
-6. Build & push Docker image lên GHCR.
+### 5. Postman / API testing
+- Dùng app nhỏ trong repo để test API cơ bản
+- Tạo collection, environment và smoke test
+- Lưu file export lại làm evidence
 
-7. Security scan: scan image (Trivy).
+## Evidence
 
-8. CD (self-hosted runner):  
-   - Build image → push GHCR (nếu có `GHCR_TOKEN`).  
-   - Restore kubeconfig từ secret (`KUBE_CONFIG`).  
-   - Deploy vào namespace `ci-deploy` (hoặc `K8S_NAMESPACE`), dùng `kubectl set image` hoặc thay `IMAGE_PLACEHOLDER` trong `k8s/` và `kubectl apply`.  
-   - Rollout check + diagnostic logs on fail.
+Folder `evidence/` là nơi lưu các file sinh ra trong quá trình chạy test, plan, apply và kiểm tra kết quả.
 
-9. Hiểu rõ hơn về cơ chế của git và github action (chủ yếu về các nhánh cũng như các loại trigger).
+Mỗi file trong đó là một dấu vết của một bước cụ thể. Nhìn lại folder này, mình muốn biết nhanh:
+- đã chạy gì
+- kết quả ra sao
+- file nào đang chứng minh cho bước nào
 
 ***
-# Nguồn cài và tham khảo
+## Nguồn cài và tham khảo
 
 Docker Engine: 
 https://docs.docker.com/engine/install/ubuntu/
@@ -50,7 +66,7 @@ sudo apt install python3.10 python3-pip make
 ```
 
 ***
-# Pull & run image từ GHCR
+## Pull & run image từ GHCR
 ```
 docker pull ghcr.io/hmm-09876/demo-3/demo-app:ci-54fca15914be974f1fed0ae748c076fba4f39c4b
 ```
