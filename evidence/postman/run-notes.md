@@ -2,7 +2,7 @@
 
 Date: 2026-04-28  
 Environment: demo-3 local  
-Base URL: http://127.0.0.1:8080  
+Base URL: http://localhost:8080  
 
 ## What I tested
 - GET /
@@ -12,6 +12,7 @@ Base URL: http://127.0.0.1:8080
 ## Expected result
 - / returns 200 and JSON body with status = ok
 - /health returns 200 and JSON body with status = ok
+- Response Content-Type includes application/json
 - /no-such-route returns 404
 
 ## Actual result
