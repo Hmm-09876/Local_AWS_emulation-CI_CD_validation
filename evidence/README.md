@@ -29,7 +29,7 @@ Mỗi file ở đây đại diện cho một bước trong flow thực hành.
 - `s3-ls.txt`  
   Kết quả kiểm tra S3 bucket / object.
 
-- `evidence/postman/`
+- `evidence/postman/`  
   Các API testing bằng Postman sau này sẽ được thêm vào đây.
 
 ## Mục đích của folder này
