@@ -6,7 +6,7 @@ Mục tiêu của folder này là lưu lại quá trình học cách dùng Postm
 
 ## Trong folder này có gì
 
-### `demo-3.postman_collection.json`
+### `api smoke tests.postman_collection.json`
 Collection chứa các request mình tạo để test app trong repo.
 
 Các request cơ bản:
@@ -14,7 +14,7 @@ Các request cơ bản:
 - `GET /health`
 - `GET /no-such-route`
 
-### `demo-3.local.postman_environment.json`
+### `demo-3.postman_environment.json`
 Environment chứa biến dùng khi chạy local.
 
 Biến chính:
