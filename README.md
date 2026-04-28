@@ -1,3 +1,8 @@
+[![CI](https://github.com/Hmm-09876/demo-3/actions/workflows/ci.yml/badge.svg)](https://github.com/Hmm-09876/demo-3/actions/workflows/ci.yml)
+
+[![CD](https://github.com/Hmm-09876/demo-3/actions/workflows/cd.yml/badge.svg)](https://github.com/Hmm-09876/demo-3/actions/workflows/cd.yml)
+
+[![Security Scan](https://github.com/Hmm-09876/demo-3/actions/workflows/sec-scan.yml/badge.svg)](https://github.com/Hmm-09876/demo-3/actions/workflows/sec-scan.yml)
 # demo-3
 
 Repo này là chỗ ghi lại quá trình học và tự tay thực hành với các tool và flow cơ bản trong DevOps / QA, như Terraform, LocalStack, pytest, Docker, GitHub Actions, GHCR, Trivy, Kubernetes và Postman.
