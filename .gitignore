@@ -1,2 +1,3 @@
+.pytest_cache
 .terraform/
 infra/terraform/modules/lambda/function.zip
