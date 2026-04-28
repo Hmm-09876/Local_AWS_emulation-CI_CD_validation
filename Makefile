@@ -1,6 +1,6 @@
-FUNC := demo_lambda
-BUCKET := demo-terraform-bucket
-FILETXT := ./tests/test.txt
+FUNC := demo-3-dev-function
+BUCKET := demo-3-dev-assets
+FILETXT := ./tests/text.txt
 
 .PHONY: lambda-invoke lambda-logs s3-upload evidence lambda-update tf-plan lambda-config s3-notify
 
@@ -14,7 +14,6 @@ s3-upload:
 	awslocal s3 cp $(FILETXT) s3://$(BUCKET)/$(KEY)
 
 evidence:
-	mkdir -p evidence
 	awslocal lambda list-functions > evidence/lambda-list.json || true
 	awslocal lambda invoke --function-name $(FUNC) --payload '{"test": "evidence"}' evidence/lambda-invoke.json || true
 	awslocal logs filter-log-events --log-group-name /aws/lambda/$(FUNC) > evidence/lambda-logs.json || true
@@ -28,6 +27,7 @@ lambda-update:
 tf-plan:
 	tflocal init
 	tflocal plan -out=tfplan || true
+	tflocal apply -auto-approve
 	tflocal show -json tfplan | jq . > evidence/tf-plan.json
 
 lambda-config:

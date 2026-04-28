@@ -1,22 +1,22 @@
 {
     "Functions": [
         {
-            "FunctionName": "demo_lambda",
-            "FunctionArn": "arn:aws:lambda:us-east-1:000000000000:function:demo_lambda",
-            "Runtime": "python3.10",
-            "Role": "arn:aws:iam::000000000000:role/lambda-role",
+            "FunctionName": "demo-3-dev-function",
+            "FunctionArn": "arn:aws:lambda:us-east-1:000000000000:function:demo-3-dev-function",
+            "Runtime": "python3.11",
+            "Role": "arn:aws:iam::000000000000:role/demo-3-dev-function-exec",
             "Handler": "handler.handler",
-            "CodeSize": 270,
+            "CodeSize": 236,
             "Description": "",
             "Timeout": 3,
             "MemorySize": 128,
-            "LastModified": "2025-08-23T17:41:54.871651+0000",
-            "CodeSha256": "W5kn4JFAM3unTM6xnojrjbRqcxJWY4RQi3fDB+d5YC0=",
+            "LastModified": "2026-04-27T17:02:52.446015+0000",
+            "CodeSha256": "JRhLAHpAuW/5M9Se3W2wNpZjpEeVfGNq8whVo0+Affc=",
             "Version": "$LATEST",
             "TracingConfig": {
                 "Mode": "PassThrough"
             },
-            "RevisionId": "230835ef-bf9a-4417-8af4-5e01f2167fa2",
+            "RevisionId": "5ca9fd2c-b2b5-4808-8b80-435a6870b787",
             "PackageType": "Zip",
             "Architectures": [
                 "x86_64"
@@ -30,7 +30,7 @@
             },
             "LoggingConfig": {
                 "LogFormat": "Text",
-                "LogGroup": "/aws/lambda/demo_lambda"
+                "LogGroup": "/aws/lambda/demo-3-dev-function"
             }
         }
     ]
