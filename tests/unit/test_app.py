@@ -1,7 +1,10 @@
-import threading, time, urllib.request, urllib.error, os, json, sys, socket
+import threading, time, urllib.request, os, json, sys, socket
 
 sys.path.insert(0, os.path.abspath("src/demo_app"))
+
+from urllib.error import HTTPError, URLError
 from app import run
+
 
 def get_free_port():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -53,15 +56,17 @@ def test_root_endpoint_returns_ok():
     assert resp.status == 200
     assert data == {"status": "ok"}
 
-    def test_unknown_path_returns_404():
-        port = get_free_port()
-        start_local_server(port)
-        deadline = time.time() + 5
-        while time.time() < deadline:
-            try:
-                urllib.request.urlopen(f"http://localhost:{port}/not-found", timeout=1)
-                assert False, "Expected HTTP 404"
-            except Exception:
-                time.sleep(0.1)
-        assert False, "Server did not respond in time"
+def test_unknown_path_returns_404():
+    port = get_free_port()
+    start_local_server(port)
+    deadline = time.time() + 5
+    while time.time() < deadline:
+        try:
+            urllib.request.urlopen(f"http://localhost:{port}/not-found", timeout=1)
+        except HTTPError as e:
+            assert e.code == 404
+            return 
+        except URLError:
+            time.sleep(0.1)
+    assert False, "Server did not respond in time"
 
