@@ -5,7 +5,6 @@ sys.path.insert(0, os.path.abspath("src/demo_app"))
 from urllib.error import HTTPError, URLError
 from app import run
 
-
 def get_free_port():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind(("localhost", 0))
@@ -21,13 +20,14 @@ def start_local_server(port=8080):
 
 
 def test_health_check():
-    thr = start_local_server(8080)
+    port = get_free_port()
+    thr = start_local_server(port)
     try:
         deadline = time.time() + 5
         resp = None
         while time.time() < deadline:
             try:
-                resp = urllib.request.urlopen("http://localhost:8080/health", timeout=1)
+                resp = urllib.request.urlopen(f"http://localhost:{port}/health", timeout=1)
                 break
             except Exception:
                 time.sleep(0.1)
