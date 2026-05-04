@@ -1,43 +1,40 @@
 # Evidence
 
-Folder này là nơi giữ lại các output sinh ra trong quá trình thực hành. Gồm:
-- Terraform đã chạy ra sao
-- LocalStack đã phản hồi như thế nào
-- Test nào pass, test nào fail
-- Output nào cần xem lại sau này
+This folder is where outputs generated during the practice process are stored. It includes:
+- How Terraform executed
+- How LocalStack responded
+- Which tests passed and which failed
+- Outputs that may need to be reviewed later
 
-## Cách đọc folder này
+## How to read this folder
 
-Mỗi file ở đây đại diện cho một bước trong flow thực hành.
+Each file here represents a step in the practice flow.
 
 ### Terraform / LocalStack
 - `tf-plan.json`  
-  Output của Terraform plan. Dùng để xem trước Terraform sẽ làm gì.
+  Output of Terraform plan. Used to preview what Terraform will do.
 
 - `tf-show.txt`  
-  Output sau khi apply. Dùng để đối chiếu resource thực tế.
+  Output after apply. Used to compare actual resources.
 
 - `lambda-list.json`  
-  Kết quả liệt kê Lambda sau khi tạo xong, hoặc bằng chứng là Lambda đã tồn tại.
+  Result of listing Lambda functions after creation, or evidence that the Lambda exists.
 
 - `lambda-invoke.json`  
-  Kết quả invoke Lambda. Cho thấy Lambda đã chạy được.
+  Result of invoking Lambda. Shows that the Lambda executed successfully.
 
 - `lambda-logs.json`  
-  Log runtime của Lambda.
+  Runtime logs of the Lambda.
 
 - `s3-ls.txt`  
-  Kết quả kiểm tra S3 bucket / object.
+  Result of checking S3 buckets / objects.
 
 - `evidence/postman/`  
-  Các API testing bằng Postman sau này sẽ được thêm vào đây.
+  API testing files using Postman will be added here later.
 
-## Mục đích của folder này
+## Purpose of this folder
 
-Các file này được giữ lại để:
-- Xem lại quá trình mình đã làm
-- Biết chỗ nào đã đúng, chỗ nào chưa đúng
-- Có bằng chứng rõ ràng khi cần review lại project
-
-
-
+These files are kept to:
+- Review what has been done
+- Identify what worked and what didn’t
+- Provide clear evidence when reviewing the project

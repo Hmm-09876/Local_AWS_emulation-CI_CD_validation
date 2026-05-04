@@ -5,51 +5,51 @@
 [![Security Scan](https://github.com/Hmm-09876/demo-3/actions/workflows/sec-scan.yml/badge.svg)](https://github.com/Hmm-09876/demo-3/actions/workflows/sec-scan.yml)
 # demo-3
 
-Repo này là chỗ ghi lại quá trình học và tự tay thực hành với các tool và flow cơ bản trong DevOps / QA, như Terraform, LocalStack, pytest, Docker, GitHub Actions, GHCR, Trivy, Kubernetes và Postman.
+This repo is a place to record the learning process and hands-on practice with basic tools and flows in DevOps / QA, such as Terraform, LocalStack, pytest, Docker, GitHub Actions, GHCR, Trivy, Kubernetes, and Postman.
 
-Mục tiêu của repo này không phải là một project production hoàn chỉnh. Nó giống một cuốn sổ thực hành hơn: làm thử, chạy thử, kiểm tra lại, rồi lưu evidence để sau này còn xem lại được.
+The goal of this repo is not to be a complete production project. It is more like a practice notebook: try things out, run them, verify them, then store evidence so it can be reviewed later.
 
-## Đã học và thử những gì
+## What has been learned and tried
 
-### 1. Terraform và LocalStack
-- Làm quen với Terraform để khai báo hạ tầng
-- Dùng LocalStack để mô phỏng AWS trên máy local
-- Tự kiểm tra Lambda, S3 và các resource liên quan
-- Tập đọc plan, apply và output sau khi chạy
+### 1. Terraform and LocalStack
+- Get familiar with Terraform for infrastructure declaration
+- Use LocalStack to simulate AWS locally
+- Manually test Lambda, S3, and related resources
+- Practice reading plan, apply, and output after execution
 
-### 2. Python và pytest
-- Viết test bằng Python
-- Dùng pytest để kiểm tra hành vi cơ bản
-- Tập quen với việc test không chỉ để pass, mà còn để tạo ra output có thể lưu lại
+### 2. Python and pytest
+- Write tests in Python
+- Use pytest to verify basic behavior
+- Get used to testing not just for passing, but also for generating storable outputs
 
 ### 3. Docker, GitHub Actions, GHCR, Trivy
-- Build image bằng Docker
-- Chạy workflow bằng GitHub Actions
-- Push image lên GHCR
-- Scan image bằng Trivy
-- Hiểu dần flow từ code tới artefact
+- Build images with Docker
+- Run workflows with GitHub Actions
+- Push images to GHCR
+- Scan images with Trivy
+- Gradually understand the flow from code to artifact
 
 ### 4. Kubernetes
-- Làm quen với manifest
-- Tập deploy cơ bản
-- Tập kiểm tra rollout và trạng thái triển khai
+- Get familiar with manifests
+- Practice basic deployments
+- Practice checking rollout and deployment status
 
 ### 5. Postman / API testing
-- Dùng app nhỏ trong repo để test API cơ bản
-- Tạo collection, environment và smoke test
-- Lưu file export lại làm evidence
+- Use the small app in the repo to test basic APIs
+- Create collections, environments, and smoke tests
+- Save exported files as evidence
 
 ## Evidence
 
-Folder `evidence/` là nơi lưu các file sinh ra trong quá trình chạy test, plan, apply và kiểm tra kết quả.
+The evidence/ folder is where files generated during test runs, plan, apply, and result verification are stored.
 
-Mỗi file trong đó là một dấu vết của một bước cụ thể. Nhìn lại folder này, mình muốn biết nhanh:
-- Đã chạy gì
-- Kết quả ra sao
-- File nào đang chứng minh cho bước nào
+Each file is a trace of a specific step. Looking at this folder, the goal is to quickly understand:
+- What was run
+- What the results were
+- Which file proves which step
 
 ***
-## Nguồn cài và tham khảo
+## Installation and reference sources
 
 Docker Engine: 
 https://docs.docker.com/engine/install/ubuntu/
@@ -71,7 +71,7 @@ sudo apt install python3.10 python3-pip make
 ```
 
 ***
-## Pull & run image từ GHCR
+## Pull & run image from GHCR
 ```
 docker pull ghcr.io/hmm-09876/demo-3/demo-app:ci-54fca15914be974f1fed0ae748c076fba4f39c4b
 ```

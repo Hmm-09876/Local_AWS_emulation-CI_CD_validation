@@ -1,44 +1,44 @@
 # Postman Evidence
 
-Folder này chứa các file liên quan tới API testing bằng Postman.
+This folder contains files related to API testing using Postman.
 
-Mục tiêu của folder này là lưu lại quá trình học cách dùng Postman để test API cơ bản, rồi giữ luôn kết quả test thành evidence.
+The goal of this folder is to record the process of learning how to use Postman to test basic APIs, and to keep the test results as evidence.
 
-## Trong folder này có gì
+## What’s in this folder
 
 ### `api smoke tests.postman_collection.json`
-Collection chứa các request mình tạo để test app trong repo.
+A collection containing the requests created to test the app in the repo.
 
-Các request cơ bản:
+Basic requests:
 - `GET /`
 - `GET /health`
 - `GET /no-such-route`
 
 ### `demo-3.postman_environment.json`
-Environment chứa biến dùng khi chạy local.
+An environment containing variables used when running locally.
 
-Biến chính:
+Main variable:
 - `base_url = http://localhost:8080`
 
 ### `run-notes.md`
-File ghi chú ngắn về lần chạy test:
-- App đang chạy ở URL nào
-- Đã test những request nào
-- Pass hay fail
-- Có gì cần chỉnh lại
+A file with short notes about each test run:
+- Which URL the app was running on
+- Which requests were tested
+- Pass or fail
+- Anything that needs adjustment
 
-## Mục tiêu
+## Objective
 
-Postman này chỉ được dùng ở mức smoke test, tức là kiểm tra nhanh những gì app đang có.
+This Postman setup is only used at the smoke test level, meaning a quick check of what the app currently provides.
 
-Kỳ vọng:
-- `GET /` trả `200` và body có `status: ok`
-- `GET /health` trả `200` và body có `status: ok`
-- `GET /no-such-route` trả `404`
+Expected results:
+- `GET /` returns `200` and the body contains `status: ok`
+- `GET /health` returns `200` and the body contains `status: ok`
+- `GET /no-such-route` returns `404`
 
-## Học được gì ở phần này
+## What was learned in this section
 
-- Cách tạo request trong Postman
-- Cách dùng environment để đổi URL nhanh
-- Cách viết test cơ bản cho response
-- Cách export collection và environment để giữ làm evidence
+- How to create requests in Postman
+- How to use environments to quickly change URLs
+- How to write basic tests for responses
+- How to export collections and environments to keep as evidence
