@@ -3,7 +3,7 @@
 [![CD](https://github.com/Hmm-09876/Local_AWS_emulation-CI_CD_validation/actions/workflows/cd.yml/badge.svg)](https://github.com/Hmm-09876/Local_AWS_emulation-CI_CD_validation/actions/workflows/cd.yml)
 
 [![Security Scan](https://github.com/Hmm-09876/Local_AWS_emulation-CI_CD_validation/actions/workflows/sec-scan.yml/badge.svg)](https://github.com/Hmm-09876/Local_AWS_emulation-CI_CD_validation/actions/workflows/sec-scan.yml)
-# Local_AWS_emulation-CI_CD_validation
+# Local AWS emulation & CI/CD validation
 This repository is a learning notebook for practicing DevOps and QA tools. It contains experiments and small demos using Terraform, LocalStack, pytest, Docker, GitHub Actions, GHCR, Trivy, Kubernetes, and Postman.
 
 The project is not a production product. It stores steps you can run and the output files as evidence for learning or review.
