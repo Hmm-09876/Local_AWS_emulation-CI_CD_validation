@@ -1,44 +1,22 @@
 # Postman Evidence
+This folder has Postman files used for quick API checks. It keeps the collection, environment, and short run notes.
 
-This folder contains files related to API testing using Postman.
+Files:
 
-The goal of this folder is to record the process of learning how to use Postman to test basic APIs, and to keep the test results as evidence.
+- `api smoke tests.postman_collection.json` — collection with basic requests (`GET /`, `GET /health`, `GET /no-such-route`).
+- `demo-3.postman_environment.json` — variables for local runs (e.g., `base_url = http://localhost:8080`).
+- `run-notes.md` — short notes about each run (URL, which requests, results).
 
-## What’s in this folder
+Quick run (use npx to avoid global install):
 
-### `api smoke tests.postman_collection.json`
-A collection containing the requests created to test the app in the repo.
+```bash
+npx newman run "evidence/postman/api smoke tests.postman_collection.json" -e "evidence/postman/demo-3.postman_environment.json"
+```
 
-Basic requests:
-- `GET /`
-- `GET /health`
-- `GET /no-such-route`
+Expected smoke results:
 
-### `demo-3.postman_environment.json`
-An environment containing variables used when running locally.
+- `GET /` → 200, body contains `status: ok`
+- `GET /health` → 200, body contains `status: ok`
+- `GET /no-such-route` → 404
 
-Main variable:
-- `base_url = http://localhost:8080`
-
-### `run-notes.md`
-A file with short notes about each test run:
-- Which URL the app was running on
-- Which requests were tested
-- Pass or fail
-- Anything that needs adjustment
-
-## Objective
-
-This Postman setup is only used at the smoke test level, meaning a quick check of what the app currently provides.
-
-Expected results:
-- `GET /` returns `200` and the body contains `status: ok`
-- `GET /health` returns `200` and the body contains `status: ok`
-- `GET /no-such-route` returns `404`
-
-## What was learned in this section
-
-- How to create requests in Postman
-- How to use environments to quickly change URLs
-- How to write basic tests for responses
-- How to export collections and environments to keep as evidence
+Goal: keep a small, easy check to confirm the app is running and basic routes work.

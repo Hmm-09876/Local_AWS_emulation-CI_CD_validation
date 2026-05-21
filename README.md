@@ -1,78 +1,54 @@
-[![CI](https://github.com/Hmm-09876/demo-3/actions/workflows/ci.yml/badge.svg)](https://github.com/Hmm-09876/demo-3/actions/workflows/ci.yml)
+[![CI](https://github.com/Hmm-09876/Local_AWS_emulation-CI_CD_validation/actions/workflows/ci.yml/badge.svg)](https://github.com/Hmm-09876/Local_AWS_emulation-CI_CD_validation/actions/workflows/ci.yml)
 
-[![CD](https://github.com/Hmm-09876/demo-3/actions/workflows/cd.yml/badge.svg)](https://github.com/Hmm-09876/demo-3/actions/workflows/cd.yml)
+[![CD](https://github.com/Hmm-09876/Local_AWS_emulation-CI_CD_validation/actions/workflows/cd.yml/badge.svg)](https://github.com/Hmm-09876/Local_AWS_emulation-CI_CD_validation/actions/workflows/cd.yml)
 
-[![Security Scan](https://github.com/Hmm-09876/demo-3/actions/workflows/sec-scan.yml/badge.svg)](https://github.com/Hmm-09876/demo-3/actions/workflows/sec-scan.yml)
-# demo-3
+[![Security Scan](https://github.com/Hmm-09876/Local_AWS_emulation-CI_CD_validation/actions/workflows/sec-scan.yml/badge.svg)](https://github.com/Hmm-09876/Local_AWS_emulation-CI_CD_validation/actions/workflows/sec-scan.yml)
+# Local_AWS_emulation-CI_CD_validation
+This repository is a learning notebook for practicing DevOps and QA tools. It contains experiments and small demos using Terraform, LocalStack, pytest, Docker, GitHub Actions, GHCR, Trivy, Kubernetes, and Postman.
 
-This repo is a place to record the learning process and hands-on practice with basic tools and flows in DevOps / QA, such as Terraform, LocalStack, pytest, Docker, GitHub Actions, GHCR, Trivy, Kubernetes, and Postman.
+The project is not a production product. It stores steps you can run and the output files as evidence for learning or review.
 
-The goal of this repo is not to be a complete production project. It is more like a practice notebook: try things out, run them, verify them, then store evidence so it can be reviewed later.
+**Quick start (simple checks)**
 
-## What has been learned and tried
+Prerequisites: Docker (Desktop), GNU Make, and a shell (Linux, macOS, or WSL on Windows).
 
-### 1. Terraform and LocalStack
-- Get familiar with Terraform for infrastructure declaration
-- Use LocalStack to simulate AWS locally
-- Manually test Lambda, S3, and related resources
-- Practice reading plan, apply, and output after execution
+1. Start LocalStack (see infra/localstack/docker-compose.yml):
 
-### 2. Python and pytest
-- Write tests in Python
-- Use pytest to verify basic behavior
-- Get used to testing not just for passing, but also for generating storable outputs
+```bash
+docker compose -f infra/localstack/docker-compose.yml up -d
+```
 
-### 3. Docker, GitHub Actions, GHCR, Trivy
-- Build images with Docker
-- Run workflows with GitHub Actions
-- Push images to GHCR
-- Scan images with Trivy
-- Gradually understand the flow from code to artifact
+2. Create Terraform plan and apply locally (uses LocalStack):
 
-### 4. Kubernetes
-- Get familiar with manifests
-- Practice basic deployments
-- Practice checking rollout and deployment status
+```bash
+make tf-plan
+```
 
-### 5. Postman / API testing
-- Use the small app in the repo to test basic APIs
-- Create collections, environments, and smoke tests
-- Save exported files as evidence
+3. Collect evidence files (lambda list, logs, S3 listing, tf plan):
 
-## Evidence
+```bash
+make evidence
+```
 
-The evidence/ folder is where files generated during test runs, plan, apply, and result verification are stored.
+4. Run tests:
 
-Each file is a trace of a specific step. Looking at this folder, the goal is to quickly understand:
-- What was run
-- What the results were
-- Which file proves which step
+```bash
+pytest
+```
+
+Notes for Windows users: use WSL or Git Bash for best compatibility with `make` and LocalStack commands.
+
+## What this repo shows (short)
+
+- Terraform + LocalStack: practice writing infra code and running it locally.
+- Python + pytest: example unit tests and simple verification.
+- Docker & GitHub Actions: how images are built and scanned.
+- Kubernetes manifests: simple examples for deployments and services.
+- Postman: small smoke tests and exported collections kept as evidence.
+
+## Evidence folder
+
+See the `evidence/` folder for outputs created during runs. Typical commands that produce these files are in the top-level `Makefile` (`make evidence`, `make tf-plan`).
 
 ***
-## Installation and reference sources
-
-Docker Engine: 
-https://docs.docker.com/engine/install/ubuntu/
-
-Terraform: 
-https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
-
-kind:
-https://kind.sigs.k8s.io/docs/user/quick-start/
-
-kubectl:
-https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
-
-Python, pip, Make: 
-```
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt update
-sudo apt install python3.10 python3-pip make
-```
-
-***
-## Pull & run image from GHCR
-```
-docker pull ghcr.io/hmm-09876/demo-3/demo-app:ci-54fca15914be974f1fed0ae748c076fba4f39c4b
-```
 
